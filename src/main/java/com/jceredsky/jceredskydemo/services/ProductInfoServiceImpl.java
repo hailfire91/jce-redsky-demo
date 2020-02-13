@@ -1,6 +1,6 @@
 package com.jceredsky.jceredskydemo.services;
 
-import com.jceredsky.jceredskydemo.domain.ShortProduct;
+import com.jceredsky.jceredskydemo.domain.Product;
 import com.jceredsky.jceredskydemo.models.RedskyResponse;
 import com.jceredsky.jceredskydemo.resources.RedskyResource;
 import org.springframework.stereotype.Service;
@@ -15,13 +15,13 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     }
 
     @Override
-    public ShortProduct getProductBuId(String id) {
+    public Product getProductBuyId(String id) {
         RedskyResponse response = redskyResource.getRedskyProduct(id);
         //Pull the values we need out of the Marshaled json
-        String tcin = response.getProduct().getItem().getTcin();
-        String title = response.getProduct().getItem().getProduct_description().getTitle();
+        String tcin = response.getProduct().getRedskyItem().getTcin();
+        String title = response.getProduct().getRedskyItem().getProduct_description().getTitle();
 
-        ShortProduct product = new ShortProduct();
+        Product product = new Product();
         product.setId(tcin);
         product.setName(title);
 

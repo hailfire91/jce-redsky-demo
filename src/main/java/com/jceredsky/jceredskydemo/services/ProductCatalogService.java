@@ -1,8 +1,11 @@
 package com.jceredsky.jceredskydemo.services;
 
-import com.jceredsky.jceredskydemo.domain.ShortProduct;
+import com.jceredsky.jceredskydemo.domain.Product;
+import com.jceredsky.jceredskydemo.domain.RedisPrice;
 
 public interface ProductCatalogService {
 
-    ShortProduct getProductBuId(String id);
+    Product getProductBuId(String id);
+
+    RedisPrice savePriceById(Product product);
 }

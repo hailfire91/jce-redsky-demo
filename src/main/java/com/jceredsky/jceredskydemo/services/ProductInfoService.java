@@ -1,9 +1,9 @@
 package com.jceredsky.jceredskydemo.services;
 
-import com.jceredsky.jceredskydemo.domain.ShortProduct;
+import com.jceredsky.jceredskydemo.domain.Product;
 
 public interface ProductInfoService {
 
-    public ShortProduct getProductBuId(String id);
+    public Product getProductBuyId(String id);
 
 }

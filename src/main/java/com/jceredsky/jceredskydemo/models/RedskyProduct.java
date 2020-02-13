@@ -4,26 +4,26 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Product {
+public class RedskyProduct {
 
     @JsonProperty("item")
-    Item item;
+    RedskyItem redskyItem;
 
-    public Product() {
+    public RedskyProduct() {
     }
 
-    public Item getItem() {
-        return item;
+    public RedskyItem getRedskyItem() {
+        return redskyItem;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setRedskyItem(RedskyItem redskyItem) {
+        this.redskyItem = redskyItem;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "item=" + item +
+                "item=" + redskyItem +
                 '}';
     }
 }

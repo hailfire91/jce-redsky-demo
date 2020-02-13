@@ -1,24 +1,36 @@
 package com.jceredsky.jceredskydemo.services;
 
-import com.jceredsky.jceredskydemo.domain.ShortProduct;
-import com.jceredsky.jceredskydemo.models.RedskyResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jceredsky.jceredskydemo.domain.Price;
+import com.jceredsky.jceredskydemo.domain.Product;
+import com.jceredsky.jceredskydemo.domain.RedisPrice;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class ProductCatalogServiceImpl implements ProductCatalogService {
 
-private ProductInfoService productInfoService;
+    private ProductInfoService productInfoService;
+    private ProductPricingService productPricingService;
 
-    public ProductCatalogServiceImpl(ProductInfoService productInfoService) {
+    public ProductCatalogServiceImpl(ProductInfoService productInfoService, ProductPricingService productPricingService) {
         this.productInfoService = productInfoService;
+        this.productPricingService = productPricingService;
     }
 
     @Override
-    public ShortProduct getProductBuId(String id) {
-        ShortProduct shortProduct = productInfoService.getProductBuId(id);
-        return shortProduct;
+    public Product getProductBuId(String id) {
+        Product product = productInfoService.getProductBuyId(id);
+        Price price = productPricingService.getPriceById(id);
+        product.setPrice(price);
+        return product;
     }
 
+    @Override
+    public RedisPrice savePriceById(Product product) {
+        RedisPrice redisPrice = new RedisPrice();
+        Price price = product.getPrice();
+        redisPrice.setId(product.getId());
+        redisPrice.setValue(price.getValue());
+        redisPrice.setCurrency_code(price.getCurrency_code());
+        return productPricingService.updatePriceById(redisPrice);
+    }
 }

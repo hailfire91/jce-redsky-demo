@@ -7,16 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RedskyResponse {
 
     @JsonProperty("product")
-    Product product;
+    RedskyProduct product;
 
     public RedskyResponse() {
     }
 
-    public Product getProduct() {
+    public RedskyProduct getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(RedskyProduct product) {
         this.product = product;
     }
 

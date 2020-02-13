@@ -8,8 +8,11 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RedskyResource {
 
-    @Autowired
     private RestTemplate restTemplate;
+
+    public RedskyResource(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     public RedskyResponse getRedskyProduct(String id)
     {

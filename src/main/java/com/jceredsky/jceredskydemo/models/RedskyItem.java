@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Item {
+public class RedskyItem {
 
     @JsonProperty("tcin")
     String tcin;
     @JsonProperty("product_description")
     ProductDescription product_description;
 
-    public Item() {
+    public RedskyItem() {
     }
 
     public String getTcin() {
