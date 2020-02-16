@@ -14,6 +14,12 @@ public class ProductInfoServiceImpl implements ProductInfoService {
         this.redskyResource = redskyResource;
     }
 
+    /**
+     * This function pulls the data we need for the product object out of the marshaled json object and
+     * created a new Product with this data.
+     * @param id id of the product to get
+     * @return the product
+     */
     @Override
     public Product getProductBuyId(String id) {
         RedskyResponse response = redskyResource.getRedskyProduct(id);

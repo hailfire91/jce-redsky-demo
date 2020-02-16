@@ -1,7 +1,7 @@
 # jce-redsky-demo
 Redsky product API demo
 
-#Project Setup
+# Project Setup
 To setup this project first clone this repository. It does have one dependency that needs to be installed and running, Redis Database.
 If you are running windows 10, instalation instructions are here: https://redislabs.com/blog/redis-on-windows-10/
 If you are on OSX it can be installed using homebrew: brew install redis

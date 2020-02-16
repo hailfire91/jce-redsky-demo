@@ -16,6 +16,11 @@ public class ProductCatalogServiceImpl implements ProductCatalogService {
         this.productPricingService = productPricingService;
     }
 
+    /**
+     * This function gets the produce info and price from their respective services and combines them into a product for return.
+     * @param id id of the product to get.
+     * @return the requested Product.
+     */
     @Override
     public Product getProductBuId(String id) {
         Product product = productInfoService.getProductBuyId(id);
@@ -24,6 +29,11 @@ public class ProductCatalogServiceImpl implements ProductCatalogService {
         return product;
     }
 
+    /**
+     * This function converts the product into a redis price so it can be updated in the database.
+     * @param product product Who's price should be updated.
+     * @return the database creation objectS.
+     */
     @Override
     public RedisPrice savePriceById(Product product) {
         RedisPrice redisPrice = new RedisPrice();
