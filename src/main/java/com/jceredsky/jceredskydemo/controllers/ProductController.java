@@ -37,7 +37,7 @@ public class ProductController {
      *
      * This api call will return the result of the update call to the database.
      * @param product product who's price should be updated
-     * @return created object from the database
+     * @return created RedisPrice from the database
      */
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)

@@ -10,10 +10,19 @@ public class RedskyResource {
 
     private RestTemplate restTemplate;
 
+    /**
+     * returns a new instance of the object with the injected RestTemplate
+     * @param restTemplate
+     */
     public RedskyResource(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
+    /**
+     * returns the objects that the json was marshaled into.
+     * @param id
+     * @return
+     */
     public RedskyResponse getRedskyProduct(String id)
     {
         String uri = "https://redsky.target.com/v2/pdp/tcin/" + id + "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
