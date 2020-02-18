@@ -22,7 +22,7 @@ public class ProductCatalogServiceImpl implements ProductCatalogService {
      * @return the requested Product.
      */
     @Override
-    public Product getProductBuId(String id) {
+    public Product getProductById(String id) {
         Product product = productInfoService.getProductBuyId(id);
         Price price = productPricingService.getPriceById(id);
         product.setPrice(price);

@@ -5,7 +5,7 @@ import com.jceredsky.jceredskydemo.domain.RedisPrice;
 
 public interface ProductCatalogService {
 
-    Product getProductBuId(String id);
+    Product getProductById(String id);
 
     RedisPrice savePriceById(Product product);
 }
